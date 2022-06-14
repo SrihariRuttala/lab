@@ -1,4 +1,8 @@
-// Create insert display searc
+// 9)Program to perform the following operations on dll :
+// 1 create
+// 2 diff categories of insert
+// 3 search 
+// 4 display
 
 #include<iostream>
 using namespace std;

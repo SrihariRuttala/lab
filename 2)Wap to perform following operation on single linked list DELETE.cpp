@@ -1,4 +1,8 @@
-//create insert display delete
+// 2)Program to perform the following operations on sll:
+// 1 create
+// 2 diff categories of insert
+// 3 diff categories of delete
+// 4 display 
 
 #include<iostream>
 using namespace std;

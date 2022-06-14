@@ -1,4 +1,8 @@
-//create insert display reverse
+// 5)Program to perform the following operations on sll:
+// 1 create
+// 2 diff categories of insert
+// 3 reverse
+// 4 display 
 
 #include<iostream>
 using namespace std;

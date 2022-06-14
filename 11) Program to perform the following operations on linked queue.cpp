@@ -1,4 +1,4 @@
-//create enqueue dequeue display
+// 11) Program to perform the following operations on linked queue
 
 #include<iostream>
 using namespace std;

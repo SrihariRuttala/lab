@@ -1,4 +1,4 @@
-//create PUSH POP
+// 10) Program to perform the following operations on linked stack 
 
 #include<iostream>
 using namespace std;

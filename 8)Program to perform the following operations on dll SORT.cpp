@@ -1,4 +1,9 @@
-// Create insert display delete
+// 8)Program to perform the following operations on dll :
+// 1 create
+// 2 diff categories of insert
+// 3 sort
+// 4 display 
+
 
 #include<iostream>
 using namespace std;
