@@ -1,0 +1,9 @@
+declare 
+   empname emp1.name%type;
+   sal emp1.salary%type;
+
+begin
+   select name, salary into empname, sal from emp1 where id=1;
+   dbms_output.put_line(empname);
+   dbms_output.put_line(sal);
+end;
