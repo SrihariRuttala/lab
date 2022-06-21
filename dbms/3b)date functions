@@ -1,0 +1,5 @@
+SELECT sysdate from dual;
+SELECT next_day('22-mar-22','Tuesday') from dual;
+SELECT add_months('22-mar-22',3) from dual;
+SELECT last_day(sysdate) from dual;
+SELECT dbtimezone from dual;

@@ -1,0 +1,7 @@
+create a table;
+
+create view employ as select cid, name;
+create or replace view employ as select cid, name, city;
+create or replace view employ1 as select id,name,salary from emp1 where salary>50000 with check option;  --> next use insert to check violation.
+delete from employ where name='kyko';
+drop view employ;

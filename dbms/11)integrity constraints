@@ -1,0 +1,19 @@
+create table hello
+(
+     id number,
+     phno number not null,
+     gender varchar(10),
+     email varchar(10) unique,
+     check (gender in('male','female')),
+     primary key(id)
+);
+
+create table hello2
+(
+     hid number,
+     hi varchar(20),     
+foreign key (hid) references hello(id)     
+);
+
+alter table emp1 add constraint pk_emp primary key (id);
+alter table emp0 add constraint fk_emp foreign key (cid) references emp1(id) ;

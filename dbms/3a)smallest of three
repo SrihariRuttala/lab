@@ -1,0 +1,17 @@
+
+DECLARE
+	a NUMBER := 46;
+	b NUMBER := 67;
+	c NUMBER := 21;
+BEGIN
+	IF a < b AND a < c THEN
+	   DBMS_OUTPUT.PUT_LINE('Smallest is '||a);
+	   
+	ELSIF b<a AND b<c THEN
+	   DBMS_OUTPUT.PUT_LINE('Smallest is '||b);
+	
+	ELSE
+	   DBMS_OUTPUT.PUT_LINE('Smallest is '||c);
+	END IF;
+
+END;

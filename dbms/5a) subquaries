@@ -1,0 +1,21 @@
+create table employee
+(
+	eno number(4),
+	ename varchar(10),
+	ebranch char(5),
+	primary key(eno)
+);
+
+create table dept
+(
+	dname char(5)
+	dno number,
+	eno number,
+	foreign key (eno) references employee(eno)
+);
+
+ANY : 
+select * from emp1 where name= ANY (select name from emp0 where name='rafi');
+select * from emp1 where name= ALL (select name from emp0 where name='rafi');
+select * from emp1 where exists (select name from emp0 where emp1.id=emp0.cid);
+select * from emp1 where not exists (select name from emp0 where emp1.id=emp0.cid);

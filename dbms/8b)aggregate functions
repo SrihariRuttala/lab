@@ -1,0 +1,5 @@
+select avg(amount) from customer;
+select max(amount) from customer;
+select sum(amount) from customer;
+select count(amount) from customer;
+select min(amount) from customer;

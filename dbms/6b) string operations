@@ -1,0 +1,5 @@
+select 'hello ' || 'gitam' from dual; --> concat
+select instr('gitam', 'i') from dual;
+select upper('gitaM') from dual;
+select lower('gitaM') from dual;
+select length('gitaM') from dual;

@@ -1,0 +1,28 @@
+create table emp1
+(
+	id number,
+	name varchar(30),
+	salary number,
+	phno number
+);
+
+create table emp0
+(
+	cid number,
+	name varchar(30),
+	city varchar(30)	
+);
+
+insert into emp1 values(1, 'vinay', 50000, 12346);
+insert into emp1 values(2, 'naveen', 150000, 12347);
+insert into emp1 values(3, 'rafi', 20000, 12348);
+insert into emp1 values(4, 'manoj', 52000, 12349);
+
+insert into emp0 values(3, 'rafi', 'hydrabad');
+insert into emp0 values(2, 'naveen', 'srisailam');
+
+select * from emp0 full join emp1 on emp0.cid=emp1.id;
+select * from emp0 left outer join emp1 on emp0.cid=emp1.id;
+select * from emp0 right outer join emp1 on emp0.cid=emp1.id;
+select * from emp0 inner join emp1 on emp0.cid=emp1.id;
+select * from emp0 natural join emp1;

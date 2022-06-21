@@ -1,0 +1,4 @@
+select * from emp1 minus select * from emp2;
+select * from emp1 union select * from emp2;
+select * from emp1 union all select * from emp2;
+select * from emp1 intersect select * from emp2;
