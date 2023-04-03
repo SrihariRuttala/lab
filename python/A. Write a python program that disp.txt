@@ -1,0 +1,677 @@
+A. Write a python program that displays the sum of all digits for a user entered number.
+
+[ ]
+
+num = input("Enter a number: ")
+sum = 0
+
+for digit in num:
+    sum += int(digit)
+
+print("Sum of digits:", sum)
+
+Enter a number: 14
+Sum of digits: 5
+A. Write a python function leap year that prints all the leap years between ranges
+
+[ ]
+def leap_years(start_year, end_year):
+    for year in range(start_year, end_year+1):
+        if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0):
+            print(year)
+leap_years(2000, 2022)
+
+2000
+2004
+2008
+2012
+2016
+2020
+A. Write a python program to implement permutation in which all characters appear only once.
+
+[ ]
+from itertools import permutations
+
+def permute_unique_chars(string):
+    # Get all permutations of the string
+    perms = permutations(string)
+
+    # Loop through each permutation
+    for perm in perms:
+        # Check if the characters in the permutation are unique
+        if len(set(perm)) == len(string):
+            # If they are, print the permutation
+            print(''.join(perm))
+permute_unique_chars('abc')
+
+abc
+acb
+bac
+bca
+cab
+cba
+A. Write a recursive function in python to print a Fibonacci series.
+
+[ ]
+def fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        return (fibonacci(n-1) + fibonacci(n-2))
+
+def print_fibonacci_series(n):
+    for i in range(n):
+        print(fibonacci(i))
+print_fibonacci_series(10)
+
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+A. Write a python program for sorting the integer data by using quick sort
+
+[ ]
+def quicksort(arr):
+    if len(arr) <= 1:
+        return arr
+    else:
+        pivot = arr[0]
+        less = [x for x in arr[1:] if x <= pivot]
+        greater = [x for x in arr[1:] if x > pivot]
+        return quicksort(less) + [pivot] + quicksort(greater)
+my_list = [4, 2, 7, 1, 3, 6, 5]
+sorted_list = quicksort(my_list)
+print(sorted_list)
+
+[1, 2, 3, 4, 5, 6, 7]
+A. Implement KNN algorithm in python- I. Handle data set(2.5+2.5) II. Calculate the distance(2.5+2.5) III. Find k nearest point(2.5+2.5)
+
+[ ]
+#handle the data set 
+dataset = [
+    (2, 4, 0),
+    (3, 6, 0),
+    (4, 8, 0),
+    (1, 2, 1),
+    (2, 1, 1),
+    (3, 3, 1),
+]
+#calculate the distance 
+import math
+
+def euclidean_distance(point1, point2):
+    distance = 0
+    for i in range(len(point1)):
+        distance += (point1[i] - point2[i]) ** 2
+    return math.sqrt(distance)
+# find k nearest points
+def knn(dataset, k, new_point):
+    distances = []
+    for point in dataset:
+        distance = euclidean_distance(point[:-1], new_point)
+        distances.append((point, distance))
+    distances.sort(key=lambda x: x[1])
+    neighbors = [distances[i][0] for i in range(k)]
+    return neighbors
+new_point = (2, 3)
+k = 3
+neighbors = knn(dataset, k, new_point)
+class_counts = {}
+for neighbor in neighbors:
+    class_label = neighbor[-1]
+    if class_label in class_counts:
+        class_counts[class_label] += 1
+    else:
+        class_counts[class_label] = 1
+predicted_label = max(class_counts, key=class_counts.get)
+print(predicted_label)
+
+1
+B. Write a python program to add two numbers by taking user input
+
+[ ]
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+
+result = num1 + num2
+
+print("The sum of {} and {} is {}".format(num1, num2, result))
+
+Enter first number: 45
+Enter second number: 89
+The sum of 45.0 and 89.0 is 134.0
+A. Write a python program to check whether a number is a palindrome number or not.(
+
+[ ]
+num = int(input("Enter a number: "))
+
+# Convert the number to a string and reverse it
+reverse_num = str(num)[::-1]
+
+# Check if the original number is equal to its reverse
+if str(num) == reverse_num:
+    print("{} is a palindrome number".format(num))
+else:
+    print("{} is not a palindrome number".format(num))
+
+Enter a number: 78
+78 is not a palindrome number
+B. Write python programs on strings – I. To retrieve elements from a string(2+2) II. String slicing(2+2) III. Reversing a string(2+2) IV. String formating(
+
+[ ]
+# Get the character at index 2
+string = "hello world"
+char = string[2]
+print(char)  # Output: 'l'
+
+# Get the substring from index 3 to 7 (exclusive)
+substring = string[3:7]
+print(substring)  # Output: 'lo w'
+
+# Get the first 3 characters of the string
+string = "hello world"
+substring = string[:3]
+print(substring)  # Output: 'hel'
+
+# Get the last 5 characters of the string
+substring = string[-5:]
+print(substring)  # Output: 'world'
+
+
+string = "hello world"
+reverse_string = string[::-1]
+print(reverse_string)  # Output: 'dlrow olleh'
+
+#string formatting
+name = "Alice"
+age = 30
+height = 1.75
+
+# Using f-strings
+message = f"My name is {name}, I am {age} years old, and I am {height:.2f} meters tall"
+print(message)  # Output: 'My name is Alice, I am 30 years old, and I am 1.75 meters tall'
+
+# Using the .format() method
+message = "My name is {}, I am {} years old, and I am {:.2f} meters tall".format(name, age, height)
+print(message)  # Output: 'My name is Alice, I am 30 years old, and I am 1.75 meters tall'
+
+
+l
+lo w
+hel
+world
+dlrow olleh
+My name is Alice, I am 30 years old, and I am 1.75 meters tall
+My name is Alice, I am 30 years old, and I am 1.75 meters tall
+A. Write a python program to print Armstrong number.(3+3) B. Implement 7 list methods in python
+
+[ ]
+# Function to check if a number is an Armstrong number
+def is_armstrong(n):
+    # Convert number to string to get number of digits
+    num_str = str(n)
+    num_digits = len(num_str)
+    # Calculate sum of cubes of each digit
+    sum = 0
+    for digit in num_str:
+        sum += int(digit)**num_digits
+    # Check if sum is equal to the original number
+    return sum == n
+
+# Test the function for numbers between 1 and 1000
+for n in range(1, 1000):
+    if is_armstrong(n):
+        print(n)
+
+fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")
+print(fruits)  # Output: ['apple', 'banana', 'cherry', 'orange']
+fruits = ["apple", "banana", "cherry"]
+fruits.insert(1, "orange")
+print(fruits)  # Output: ['apple', 'orange', 'banana', 'cherry']
+fruits = ["apple", "banana", "cherry"]
+fruits.remove("banana")
+print(fruits)  # Output: ['apple', 'cherry']
+fruits = ["apple", "banana", "cherry"]
+banana = fruits.pop(1)
+print(fruits)  # Output: ['apple', 'cherry']
+print(banana)  # Output: 'banana'
+
+fruits = ["banana", "cherry", "apple"]
+fruits.sort()
+print(fruits)  # Output: ['apple', 'banana', 'cherry']
+fruits = ["apple", "banana", "cherry"]
+fruits.reverse()
+print(fruits)  # Output: ['cherry', 'banana', 'apple']
+fruits = ["apple", "banana", "cherry"]
+banana_index = fruits.index("banana")
+print(banana_index)  # Output: 1
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+153
+370
+371
+407
+['apple', 'banana', 'cherry', 'orange']
+['apple', 'orange', 'banana', 'cherry']
+['apple', 'cherry']
+['apple', 'cherry']
+banana
+['apple', 'banana', 'cherry']
+['cherry', 'banana', 'apple']
+1
+A. Write a python program to reverse a number.(4+4) B. Write python programs to Implement 3 dictionary methods and 3 dictionary functions
+
+[ ]
+def reverse_number(num):
+    reversed_num = 0
+    while num > 0:
+        digit = num % 10
+        reversed_num = (reversed_num * 10) + digit
+        num //= 10
+    return reversed_num
+
+# Example usage
+num = 1234
+reversed_num = reverse_number(num)
+print(f"The reversed number of {num} is {reversed_num}")
+
+# Example usage of clear() method
+my_dict = {1: 'one', 2: 'two', 3: 'three'}
+print(my_dict)
+my_dict.clear()
+print(my_dict)
+# Example usage of update() method
+my_dict1 = {1: 'one', 2: 'two'}
+my_dict2 = {3: 'three', 4: 'four'}
+my_dict1.update(my_dict2)
+print(my_dict1)
+# Example usage of keys() method
+my_dict = {1: 'one', 2: 'two', 3: 'three'}
+print(my_dict.keys())
+# Example usage of len() function
+my_dict = {1: 'one', 2: 'two', 3: 'three'}
+print(len(my_dict))
+# Example usage of get() function
+my_dict = {1: 'one', 2: 'two', 3: 'three'}
+print(my_dict.get(2))
+print(my_dict.get(4, 'four'))
+# Example usage of items() function
+my_dict = {1: 'one', 2: 'two', 3: 'three'}
+print(my_dict.items())
+
+
+                                         
+The reversed number of 1234 is 4321
+{1: 'one', 2: 'two', 3: 'three'}
+{}
+{1: 'one', 2: 'two', 3: 'three', 4: 'four'}
+dict_keys([1, 2, 3])
+3
+two
+four
+dict_items([(1, 'one'), (2, 'two'), (3, 'three')])
+A. Write python programs on 8 additional concepts of tuple.(8+8) B. Write programs on implicit and explicit type casting in python.(2+2)
+
+[ ]
+# Packing a tuple
+my_tuple = 1, 2, 3
+print(my_tuple)
+
+# Unpacking a tuple
+a, b, c = my_tuple
+print(a)
+print(b)
+print(c)
+# Concatenating tuples using +
+tuple1 = 1, 2, 3
+tuple2 = 4, 5, 6
+concatenated_tuple = tuple1 + tuple2
+print(concatenated_tuple)
+
+# Concatenating tuples using *
+tuple3 = 7, 8, 9
+concatenated_tuple2 = tuple1 + tuple2 + tuple3
+print(concatenated_tuple2)
+# Slicing a tuple
+my_tuple = 1, 2, 3, 4, 5
+print(my_tuple[1:4])
+# Counting occurrences of an element in a tuple
+my_tuple = 1, 2, 3, 2, 4, 2, 5
+print(my_tuple.count(2))
+# Finding index of an element in a tuple
+my_tuple = 1, 2, 3, 2, 4, 2, 5
+print(my_tuple.index(4))
+# Length of a tuple
+my_tuple = 1, 2, 3, 2, 4, 2, 5
+print(len(my_tuple))
+# Checking if an element exists in a tuple
+my_tuple = 1, 2, 3, 2, 4, 2, 5
+print(4 in my_tuple)
+
+
+
+# Implicit type casting
+num_int = 123
+num_float = 3.14
+sum_num = num_int + num_float
+print("Value of sum_num is:", sum_num)
+print("The data type of sum_num is:", type(sum_num))
+# Explicit type casting
+num_int = 123
+num_str = "456"
+num_float = 3.14
+print("Data type of num")
+
+(1, 2, 3)
+1
+2
+3
+(1, 2, 3, 4, 5, 6)
+(1, 2, 3, 4, 5, 6, 7, 8, 9)
+(2, 3, 4)
+3
+4
+7
+True
+Value of sum_num is: 126.14
+The data type of sum_num is: <class 'float'>
+Data type of num
+
+
+
+
+svm 
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn import svm
+from sklearn.metrics import accuracy_score
+# loading the data from csv file to a Pandas DataFrame
+parkinsons_data = pd.read_csv('/content/drive/MyDrive/parkinson2.data')
+parkinsons_data.head()  
+# number of rows and columns in the dataframe
+parkinsons_data.shape
+# getting more information about the dataset
+parkinsons_data.info()
+# checking for missing values in each column
+parkinsons_data.isnull().sum()
+# getting some statistical measures about the data
+parkinsons_data.describe()
+# distribution of target Variable
+parkinsons_data['status'].value_counts()
+# grouping the data bas3ed on the target variable
+parkinsons_data.groupby('status').mean()     
+X = parkinsons_data.drop(columns=['name','status'], axis=1)
+Y = parkinsons_data['status']
+     
+
+print(X)
+print(Y)
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=2)
+     
+
+print(X.shape, X_train.shape, X_test.shape)
+scaler = StandardScaler()
+     
+
+scaler.fit(X_train)
+X_train = scaler.transform(X_train)
+
+X_test = scaler.transform(X_test)
+     
+
+print(X_train)
+model = svm.SVC(kernel='linear')
+     
+
+# training the SVM model with training data
+model.fit(X_train, Y_train)
+# accuracy score on training data
+X_train_prediction = model.predict(X_train)
+training_data_accuracy = accuracy_score(Y_train, X_train_prediction)
+     
+
+print('Accuracy score of training data : ', training_data_accuracy)
+# accuracy score on training data
+X_test_prediction = model.predict(X_test)
+test_data_accuracy = accuracy_score(Y_test, X_test_prediction)
+     
+
+print('Accuracy score of test data : ', test_data_accuracy)
+input_data = (197.07600,206.89600,192.05500,0.00289,0.00001,0.00166,0.00168,0.00498,0.01098,0.09700,0.00563,0.00680,0.00802,0.01689,0.00339,26.77500,0.422229,0.741367,-7.348300,0.177551,1.743867,0.085569)
+
+# changing input data to a numpy array
+input_data_as_numpy_array = np.asarray(input_data)
+
+# reshape the numpy array
+input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
+
+# standardize the data
+std_data = scaler.transform(input_data_reshaped)
+
+prediction = model.predict(std_data)
+print(prediction)
+
+
+if (prediction[0] == 0):
+  print("The Person does not have Parkinsons Disease")
+
+else:
+  print("The Person has Parkinsons")
+
+
+
+logistic regression 
+import numpy
+from sklearn import linear_model
+#X represents the size of a tumor in centimeters.
+X = numpy.array([3.78, 2.44, 2.09, 0.14, 1.72, 1.65, 4.92, 4.37, 4.96, 4.52, 3.69, 5.88]).reshape(-1,1)
+
+#Note: X has to be reshaped into a column from a row for the LogisticRegression() function to work.
+#y represents whether or not the tumor is cancerous (0 for "No", 1 for "Yes").
+y = numpy.array([0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1])
+
+logr = linear_model.LogisticRegression()
+logr.fit(X,y)
+#predict if tumor is cancerous where the size is 3.46mm:
+predicted = logr.predict(numpy.array([3.46]).reshape(-1,1))
+#Reshaped for Logistic function.
+X = numpy.array([3.78, 2.44, 2.09, 0.14, 1.72, 1.65, 4.92, 4.37, 4.96, 4.52, 3.69, 5.88]).reshape(-1,1)
+y = numpy.array([0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1])
+
+logr = linear_model.LogisticRegression()
+logr.fit(X,y)
+
+log_odds = logr.coef_
+odds = numpy.exp(log_odds)
+
+print(odds)
+def logit2prob(logr,x):
+  log_odds = logr.coef_ * x + logr.intercept_
+  odds = numpy.exp(log_odds)
+  probability = odds / (1 + odds)
+  return(probability)
+  log_odds = logr.coef_ * x + logr.intercept_
+  odds = numpy.exp(log_odds)
+  probability = odds / (1 + odds)
+  return(probability)
+
+print(logit2prob(logr, X))
+
+linear regression
+import numpy as np
+import matplotlib.pyplot as plt
+
+def estimate_coef(x, y):
+	# number of observations/points
+	n = np.size(x)
+
+	# mean of x and y vector
+	m_x = np.mean(x)
+	m_y = np.mean(y)
+
+	# calculating cross-deviation and deviation about x
+	SS_xy = np.sum(y*x) - n*m_y*m_x
+	SS_xx = np.sum(x*x) - n*m_x*m_x
+
+	# calculating regression coefficients
+	b_1 = SS_xy / SS_xx
+	b_0 = m_y - b_1*m_x
+
+	return (b_0, b_1)
+
+def plot_regression_line(x, y, b):
+	# plotting the actual points as scatter plot
+	plt.scatter(x, y, color = "m",
+			marker = "o", s = 30)
+# predicted response vector
+	y_pred = b[0] + b[1]*x
+
+	# plotting the regression line
+	plt.plot(x, y_pred, color = "g")
+
+	# putting labels
+	plt.xlabel('x')
+	plt.ylabel('y')
+
+	# function to show plot
+	plt.show()
+
+def main():
+	# observations / data
+	x = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+	y = np.array([1, 3, 2, 5, 7, 8, 8, 9, 10, 12])
+
+	# estimating coefficients
+	b = estimate_coef(x, y)
+	print("Estimated coefficients:\nb_0 = {} \
+		\nb_1 = {}".format(b[0], b[1]))
+
+	# plotting regression line
+	plot_regression_line(x, y, b)
+
+if __name__ == "__main__":
+	main()
+
+
+kmeans
+import matplotlib.pyplot as plt
+
+x = [4, 5, 10, 4, 3, 11, 14 , 6, 10, 12]
+y = [21, 19, 24, 17, 16, 25, 24, 22, 21, 21]
+
+plt.scatter(x, y)
+plt.show()
+from sklearn.cluster import KMeans
+
+data = list(zip(x, y))
+inertias = []
+
+for i in range(1,11):
+    kmeans = KMeans(n_clusters=i)
+    kmeans.fit(data)
+    inertias.append(kmeans.inertia_)
+
+plt.plot(range(1,11), inertias, marker='o')
+plt.title('Elbow method')
+plt.xlabel('Number of clusters')
+plt.ylabel('Inertia')
+plt.show()
+kmeans = KMeans(n_clusters=2)
+kmeans.fit(data)
+
+plt.scatter(x, y, c=kmeans.labels_)
+plt.show()
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+x = [4, 5, 10, 4, 3, 11, 14 , 6, 10, 12]
+y = [21, 19, 24, 17, 16, 25, 24, 22, 21, 21]
+data = list(zip(x, y))
+print(data)
+inertias = []
+
+for i in range(1,11):
+    kmeans = KMeans(n_clusters=i)
+    kmeans.fit(data)
+    inertias.append(kmeans.inertia_)
+
+plt.plot(range(1,11), inertias, marker='o')
+plt.title('Elbow method')
+plt.xlabel('Number of clusters')
+plt.ylabel('Inertia')
+plt.show()
+kmeans = KMeans(n_clusters=2)
+kmeans.fit(data)
+
+plt.scatter(x, y, c=kmeans.labels_)
+plt.show()
+
+hierarchical clustering
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = [4, 5, 10, 4, 3, 11, 14 , 6, 10, 12]
+y = [21, 19, 24, 17, 16, 25, 24, 22, 21, 21]
+
+plt.scatter(x, y)
+plt.show()
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.cluster.hierarchy import dendrogram, linkage
+
+x = [4, 5, 10, 4, 3, 11, 14 , 6, 10, 12]
+y = [21, 19, 24, 17, 16, 25, 24, 22, 21, 21]
+
+data = list(zip(x, y))
+
+linkage_data = linkage(data, method='ward', metric='euclidean')
+dendrogram(linkage_data)
+
+plt.show()
+mport numpy as np
+import matplotlib.pyplot as plt
+from sklearn.cluster import AgglomerativeClustering
+
+x = [4, 5, 10, 4, 3, 11, 14 , 6, 10, 12]
+y = [21, 19, 24, 17, 16, 25, 24, 22, 21, 21]
+
+data = list(zip(x, y))
+
+hierarchical_cluster = AgglomerativeClustering(n_clusters=2, affinity='euclidean', linkage='ward')
+labels = hierarchical_cluster.fit_predict(data)
+
+plt.scatter(x, y, c=labels)
+plt.show()
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.cluster.hierarchy import dendrogram, linkage
+from sklearn.cluster import AgglomerativeClustering
+x = [4, 5, 10, 4, 3, 11, 14 , 6, 10, 12]
+y = [21, 19, 24, 17, 16, 25, 24, 22, 21, 21]
+data = list(zip(x, y))
+print(data)
+linkage_data = linkage(data, method='ward', metric='euclidean')
+dendrogram(linkage_data)
+plt.show()
+hierarchical_cluster = AgglomerativeClustering(n_clusters=2, affinity='euclidean', linkage='ward')
+labels = hierarchical_cluster.fit_predict(data)
+print(labels)
+plt.scatter(x, y, c=labels)
+plt.show()
+
